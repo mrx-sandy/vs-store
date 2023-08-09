@@ -1,0 +1,53 @@
+/* Slider.css */
+.slider-box {
+    position: relative;
+    width: 1520px;
+    height: auto; /* You can adjust the height to fit your needs */
+    overflow: hidden;
+    margin-left: 200px;
+    padding-top: 50px;
+    padding-left: 1000px;
+    padding-bottom: 50px;
+    background-color: purple;
+  }
+  
+  .main{
+    background-color: purple;
+  }
+  /* Optional styles for the navigation arrows */
+  .slider-box .prevArrow,
+  .slider-box .nextArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .slider-box .prevArrow {
+    left: 10px;
+  }
+  
+  .slider-box .nextArrow {
+    right: 10px;
+  }
+  /* Slider.css */
+.carousel-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+ 
+}
+.Slider{
+ justify-content: center;
+  margin-top: 150px;
+  margin-left: 70px;
+}
+
+  

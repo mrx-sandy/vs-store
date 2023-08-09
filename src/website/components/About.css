@@ -1,0 +1,44 @@
+/* CSS code for the About section */
+.inner-section{
+    outline: 2px solid black;
+    margin-top: 500px;
+    background-image: url(https://img.freepik.com/free-vector/watercolor-nature-background-with-leaves_52683-59449.jpg?w=2000);
+}
+/* Styles for the main container */
+.about-main-container {
+    padding: 20px;
+    outline: auto;
+    background-color: aliceblue;
+    margin-top: 220px;
+  }
+  
+  /* Styles for the heading and paragraph section */
+  .about-heading-paragraph {
+    padding: 10px;
+  }
+  
+  /* Styles for the heading */
+  .about-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Styles for the paragraph */
+  .about-paragraph {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Styles for the images */
+  .about-image1 {
+  box-shadow: 10px black;
+    padding: 10px;
+  }
+  
+  
+  .about-image1 img {
+    max-width: 100%;
+    height: auto;
+  }
+  

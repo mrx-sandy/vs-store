@@ -1,0 +1,302 @@
+import React from 'react';
+import { Dropdown } from "react-bootstrap";
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
+
+const Header = () => {
+
+  const [subb, setSub] = useState([]);
+  const [subcatag, setsubcatagory] = useState([]);
+  const[brand,setbrand]=useState([]);
+ const Getbrad=()=>{
+    fetch('https://vsmart.ajspire.com/api/brands')
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      setbrand(data.brands);
+    });
+  }
+
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(prevState => !prevState);
+  };
+  
+  const getsubcata=(Catagoryid)=>{
+    fetch(`https://vsmart.ajspire.com/api/subcategories/${Catagoryid}`)
+      .then((response) => response.json())
+      .then((data) => {
+        const newsubcategory = data.subcategories;
+        setsubcatagory((previssubcat) => {
+          const filtersubcategory = newsubcategory.filter(
+            (newsubcategory) => !previssubcat.some((previs) => previs.subcategory_id === newsubcategory.subcategory_id));
+
+          return [...previssubcat, ...filtersubcategory];
+        });
+
+      })
+
+      
+
+
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }; // const[subcateg,setsubcateg]=useState([]);
+
+
+  const getcatagory = () => {
+    fetch("https://vsmart.ajspire.com/api/categories")
+      .then((response) => response.json())
+      .then((data) => {
+        setSub(data.categories);
+
+        data.categories.forEach((categories) => {
+          getsubcata(categories.category_id);
+        });
+
+        console.log(setSub);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }
+  const [showMegaMenu, setShowMegaMenu] = useState(false);
+  const [showBrandMegaMenu, setShowBrandMegaMenu] = useState(false);
+
+  const handleMouseEnter = () => {
+    setShowMegaMenu(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowMegaMenu(false);
+  };
+
+  const brandMouseEnter = () => {
+    setShowBrandMegaMenu(true);
+  };
+
+  const brandMouseLeave = () => {
+    setShowBrandMegaMenu(false);
+  };
+
+
+  useEffect(() => {
+    getcatagory();
+    Getbrad();
+    // getsubcategory();
+  }, []);
+
+  return (
+    <div className="main-top">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div className="custom-select-box">
+              <select id="basic" className="selectpicker show-tick form-control" data-placeholder="$ USD">
+                <option>¥ JPY</option>
+                <option>$ USD</option>
+                <option>€ EUR</option>
+              </select>
+            </div>
+            <div className="right-phone-box">
+              <p>Call US :- <a href="#"> +11 900 800 100</a></p>
+            </div>
+            <div className="our-link">
+              <ul>
+                <li><a href="#"><i className="fa fa-user s_color" /> My Account</a></li>
+                <li><a href="#"><i className="fas fa-location-arrow" /> Our location</a></li>
+                <li><a href="#"><i className="fas fa-headset" /> Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div className="login-box">
+              <select id="basic" className="selectpicker show-tick form-control" data-placeholder="Sign In">
+                <option>Register Here</option>
+                <option>Sign In</option>
+              </select>
+            </div>
+            {/* <div className="text-slid-box">
+          <div id="offer-box" className="carouselTicker">
+            <ul className="offer-box">
+              <li>
+                <i className="fab fa-opencart" /> 20% off Entire Purchase Promo code: offT80
+              </li>
+              <li>
+                <i className="fab fa-opencart" /> 50% - 80% off on Vegetables
+              </li>
+              <li>
+                <i className="fab fa-opencart" /> Off 10%! Shop Vegetables
+              </li>
+              <li>
+                <i className="fab fa-opencart" /> Off 50%! Shop Now
+              </li>
+              <li>
+                <i className="fab fa-opencart" /> Off 10%! Shop Vegetables
+              </li>
+              <li>
+                <i className="fab fa-opencart" /> 50% - 80% off on Vegetables
+              </li>
+              <li>
+                <i className="fab fa-opencart" /> 20% off Entire Purchase Promo code: offT30
+              </li>
+              <li>
+                <i className="fab fa-opencart" /> Off 50%! Shop Now 
+              </li>
+            </ul>
+          </div>
+        </div> */}
+          </div>
+        </div>
+      </div>
+      <header className="main-header">
+        {/ Start Navigation /}
+        <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+          <div className="container-fluid">
+            {/ Start Header Navigation /}
+            <div className="navbar-header" >
+            <button
+        className="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbar-menu"
+        aria-controls="navbars-rs-food"
+        aria-expanded={isMobileMenuOpen ? 'true' : 'false'}
+        aria-label="Toggle navigation"
+        onClick={toggleMobileMenu}
+      >
+        <i className="fa fa-bars" />
+      </button>
+      <div
+        id="navbar-menu"
+        className={`collapse navbar-collapse ${isMobileMenuOpen ? 'show' : ''}`}
+      >
+        {/ Your mobile menu content /}
+        <a className="navbar-brand" href="index.html"><img src="images/logo1.png" className="logo" alt style={{height:'100px'}}/></a>
+        <ul className="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                <li className="nav-item active nav" ><a className="nav-link " href="index.html" >Home</a></li>
+                <li className="navbar-item dropdown-megamenu">
+                  <Link to="/" className="nav-item nav-link nav" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                    <a> Categories</a>
+                  </Link>
+
+                  <Dropdown show={showMegaMenu} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                    <Dropdown.Menu className="mega-menu" style={{ height: 'auto', width: '1000px', marginLeft: '-220px' }}>
+                      <div className="row">
+                        {/ <div key={el.category_id} className="col-sm-3"> /}
+                        {/ <a href=""> /}
+                        {/ <h5 className='font-weight-bold'>{el.category_name}</h5> /}
+                        {/ </a> /}
+                        {
+
+                          subb.slice(0, 10).map((el) => (
+
+
+                            <div key='' className="col-md-3">
+                              <div key='' className="megamenu-wrap">
+                                <ul className='megamenu-list sub'>
+                                  <Link to="/category"><h5 className='font-weight-bold'>{el.category_name
+                                  }</h5></Link>
+
+
+
+                                  {subcatag.filter((sub) => sub.subcategory_category_id === el.category_id).slice(0, 6).map((sub) => (
+
+
+                                    <Link to="/category"><li>{sub.subcategory_name}</li></Link>
+
+                                  ))}
+
+                                </ul>
+
+
+                              </div>
+
+                            </div>
+                          )
+                          )}
+                        <Link to='/category'>  <button>show more</button></Link>
+                      </div>
+
+
+                    </Dropdown.Menu>
+
+                  </Dropdown>
+                </li>
+
+                <li className="navbar-item dropdown-megamenu">
+                  <Link to="/" className="nav-item nav-link" onMouseEnter={brandMouseEnter} onMouseLeave={brandMouseLeave}>
+                    <a>brand</a>
+                  </Link>
+
+                  <Dropdown show={showBrandMegaMenu} onMouseEnter={brandMouseEnter} onMouseLeave={brandMouseLeave}>
+                    <Dropdown.Menu className="mega-menu" style={{ height: 'auto', width: '1000px', marginLeft: '-220px' }}>
+                      <div className="row">
+                        {
+                          brand.map((subrand)=>(
+
+                          
+                        <div className="col-md-3">
+                          <div className="megamenu-wrap">
+
+                            <ul className="megamenu-list sub">
+                              <Link to="/hbrand">
+                                <li>
+                                  <a class="nav-link" href="/product-shop/178">{subrand.brand_name}</a>
+                                </li>
+                              </Link>
+                              
+                            </ul>
+                          </div>
+                        </div>
+                        ))
+                        }
+                        <Link to="/">
+                          <button>show more</button>
+                        </Link>
+                      </div>
+                      
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </li>
+                <li className="nav-item"><a className="nav-link" href="gallery.html">About</a></li>
+                <li className="nav-item"><a className="nav-link" href="contact-us.html">Banking <br />detail</a></li>
+                <li className="nav-item"><a className="nav-link" href="contact-us.html">Download</a></li>
+                <li className="nav-item"><a className="nav-link" href="contact-us.html">Legal</a></li>
+                <li className="nav-item"><a className="nav-link" href="contact-us.html">Blog</a></li>
+                {/* <li className="nav-item"><a className="nav-link" href="contact-us.html">Banking <br />detail</a></li>
+                <li className="nav-item"><a className="nav-link" href="contact-us.html">Banking <br />detail</a></li> */}
+              </ul>
+              <div className="attr-nav">
+              <ul>
+                <li className="search"><Link to="/login"><i class="fa fa-lock"></i> Login</Link></li>
+                <li className="side-menu">
+                  <a href="#">
+                    <i className="fa fa-shopping-bag" />
+                    <span className="badge">3</span>
+                    <p>My Cart</p>
+                  </a>
+                
+                </li>
+                 
+              </ul>
+            </div>
+      </div>
+             </div>
+            </div>
+
+        </nav>
+       
+      </header>
+      
+
+    </div>
+
+
+  )
+}
+
+export default Header

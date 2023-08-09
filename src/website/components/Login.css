@@ -1,0 +1,69 @@
+/* Login.css */
+
+/* Add your custom styles here */
+
+/* Animate the logo */
+.user-form-logo img {
+  transition: transform 0.3s ease;
+}
+
+.user-form-logo img:hover {
+  transform: scale(1.1);
+}
+
+/* Animate the title */
+.user-form-title h2 {
+  transition: color 0.3s ease;
+}
+
+.user-form-title h2:hover {
+  color: #ff6600; /* Change the color to your desired hover color */
+}
+
+/* Animate the form fields */
+.form-group input {
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #ff6600; /* Change the color to your desired focus color */
+}
+
+/* Animate the checkbox label */
+.form-check label {
+  transition: color 0.3s ease;
+}
+
+.form-check label:hover {
+  color: #ff6600; /* Change the color to your desired hover color */
+}
+
+/* Animate the login button */
+.form-button button {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-button button:hover {
+  background-color: #ff6600; /* Change the color to your desired hover background color */
+  color: #fff; /* Change the color to your desired hover text color */
+}
+
+/* Animate the 'Forgot your password?' link */
+.form-button p a {
+  transition: color 0.3s ease;
+}
+
+.form-button p a:hover {
+  color: #ff6600; /* Change the color to your desired hover color */
+}
+
+/* Animate the 'register here' link */
+.user-form-footer p a {
+  transition: color 0.3s ease;
+}
+
+.user-form-footer p a:hover {
+  color: #ff6600; /* Change the color to your desired hover color */
+}
+
+/* Add any additional styles as needed */

@@ -1,0 +1,88 @@
+/* Login.css */
+
+/* Styles for the user form container */
+.user-form-logo {
+    text-align: center;
+    margin-bottom: 20px;
+    
+  }
+  
+  .user-form-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .user-form-card {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-form-group {
+    margin-bottom: 20px;
+  }
+  
+  .user-form-group span {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-check {
+    margin-bottom: 20px;
+  }
+  
+  .form-check label {
+    font-weight: normal;
+  }
+  
+  .form-button button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-button button:hover {
+    background-color: #0056b3;
+  }
+  
+  .user-form-remind p {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .user-form-remind a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .user-form-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+  }
+  
+  .user-form-footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .user-form-footer a:hover {
+    text-decoration: underline;
+  }
+  .responsive{
+    margin-left: 300px;
+  }
+  
