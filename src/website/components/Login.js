@@ -13,7 +13,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div   className="login-page">
       <div className="row justify-content-center">
         <div className="col-12 col-sm-10 col-md-12 col-lg-12 col-xl-10">
           <div className="user-form-logo">

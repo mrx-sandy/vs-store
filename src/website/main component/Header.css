@@ -2,8 +2,11 @@
 
 /* Top Bar */
 .top-bar {
-    background-color: #6a1b9a;
-    color: #fff;
+  background: rgb(47,255,0);
+  background: -moz-radial-gradient(circle, rgba(47,255,0,1) 0%, rgba(255,0,252,1) 100%);
+  background: -webkit-radial-gradient(circle, rgba(47,255,0,1) 0%, rgba(255,0,252,1) 100%);
+  background: radial-gradient(circle, rgba(47,255,0,1) 0%, rgba(255,0,252,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2fff00",endColorstr="#ff00fc",GradientType=1);    color: #fff;
   }
   
   .top-bar h6 {
@@ -17,9 +20,8 @@
   
   /* Main Navigation */
   .navbar {
-    background-color: #9c27b0;
-    color: #fff;
-    padding: 10px 0;
+    background: rgb(47,255,0);
+   
   }
   
   .navbar-brand img {
@@ -38,7 +40,11 @@
   
   /* Dropdown Mega Menu */
   .mega-menu {
-    background-color: #9c27b0;
+    background: rgb(47,255,0);
+    background: -moz-radial-gradient(circle, rgba(47,255,0,1) 0%, rgba(255,0,252,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(47,255,0,1) 0%, rgba(255,0,252,1) 100%);
+    background: radial-gradient(circle, rgba(47,255,0,1) 0%, rgba(255,0,252,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2fff00",endColorstr="#ff00fc",GradientType=1);
     color: #fff;
   }
   
@@ -99,8 +105,11 @@
     }
   
     .navbar-collapse {
-      background-color: #9c27b0;
-    }
+      background: rgb(47,255,0);
+      background: -moz-radial-gradient(circle, rgba(47,255,0,1) 0%, rgba(255,0,252,1) 100%);
+      background: -webkit-radial-gradient(circle, rgba(47,255,0,1) 0%, rgba(255,0,252,1) 100%);
+      background: radial-gradient(circle, rgba(47,255,0,1) 0%, rgba(255,0,252,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2fff00",endColorstr="#ff00fc",GradientType=1);    }
   
     .navbar-nav {
       padding: 10px;

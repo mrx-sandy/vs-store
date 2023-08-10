@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
-import './Header.css';
+
 
 const Header = () => {
-  const [ourgro, setourgro] = useState([]);
+  const [OurGrossary, setOurGrossary] = useState([]);
   const [showMegaMenu, setShowMegaMenu] = useState(false);
   const [subcategory, setsubcategory] = useState([]);
   const[brand,setbrand]=useState([]);
@@ -34,15 +34,20 @@ const Header = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setourgro(data.categories);
-      
-        data.categories.forEach((category) => {
-          getsubcategory(category.category_id);
-        });
+        setOurGrossary(data.categories);
       })
       .catch((error) => console.error("Error fetching data:", error));
+  
+    // Fetch all subcategories in a single request
+    fetch("https://vsmart.ajspire.com/api/subcategories")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setsubcategory(data.subcategories);
+      })
+      .catch((error) => console.error("Error fetching subcategories:", error));
   };
-
+  
 
   const getsubcategory = (category_id) => {
     fetch(`https://vsmart.ajspire.com/api/subcategories/${category_id}`)
@@ -101,12 +106,12 @@ const Header = () => {
 
             {/* Shopping */}
         <li className="navbar-item dropdown-megamenu">
-                  <Link to="/" className="nav-item nav-link" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                  <Link to="/shop" className="nav-item nav-link" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     <a><h3>Brand</h3></a>
                   </Link>
 
                   <Dropdown show={showMegaMenu} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                    <Dropdown.Menu className="mega-menu" style={{ height: 'auto', width: '1000px', marginLeft: '-220px' }}>
+                    <Dropdown.Menu className="mega-menu" style={{ height: 'auto', width: '1500px', marginLeft: '-20px' }}>
                       <div className="row">
                         {
                           brand.map((subrand)=>(
@@ -144,33 +149,35 @@ const Header = () => {
 
               {/* Mega Menu */}
               <Dropdown show={showMegaMenu} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <Dropdown.Menu className="mega-menu" style={{ height:'100', width: '500px', marginLeft:'-220'}}>
+                <Dropdown.Menu className="mega-menu" 
+                style={{ height:"auto", width:"1000px", marginLeft:"-320px",alignItems:"center"}}>
                   <div className="row">
-                    {ourgro.map((el) => (
+                    {OurGrossary.map((el) => (
                       <div className="col-sm-3" key={el.category_id}>
                         <Link to={`/category/${el.category_id}`}>
                           <h5 className='font-weight-bold'>{el.category_name}</h5>
                         </Link>
                         <ul>
-                          {subcategory
-                            .filter((sub) => sub.subcategory_category_id === el.category_id)
-                            .map((sub) => (
-                              <li key={sub.subcategory_id}>
-                                <Link to={`/subcategory/${sub.subcategory_id}`}>
-                                  {sub.subcategory_name}
-                                </Link>
-                              </li>
-                            ))}
-                        </ul>
+  {subcategory
+    .filter((sub) => sub.subcategory_category_id === el.category_id)
+    .map((sub) => (
+      <li key={sub.subcategory_id}>
+        <Link to="/subcategory">
+          <span>{sub.subcategory_name}</span>
+        </Link>
+      </li>
+    ))}
+</ul>
+
                       </div>
                     ))}
                   </div>
                 </Dropdown.Menu>
               </Dropdown>
             </li>
-            <li className="navbar-item">
+            {/* <li className="navbar-item">
               <Link to="/legel" className="nav-link"><h3>Legel</h3></Link>
-            </li>
+            </li> */}
             {/* <li className="navbar-item">
               <Link to="/banking-details" className="nav-link"><h3>Banking Details</h3></Link>
             </li> */}
@@ -229,7 +236,7 @@ const Header = () => {
             <small className="fa fa-shopping-bag text-body"></small>
           </a>
 
-          
+        
         </div>
           </div>
            

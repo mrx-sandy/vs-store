@@ -9,6 +9,8 @@ import About from "./website/components/About";
 import Blog from "./website/components/Blog";
 import Brand from "./website/components/Brand"; // Import the Brand component
 import Register from "./website/components/Register";
+import Shop from "./website/components/Shop"
+import AllProducts from "./website/components/AllProducts";
 
 const Allroutes = () => {
   return (
@@ -24,8 +26,11 @@ const Allroutes = () => {
 
         <Route path="/about" element={<Master Rcf={About} />} />
         <Route path="/register"  element={<Register/> }/>
+        <Route path="/shop" element={<Master Rcf={Shop}/> }/>
 
         <Route path="/blog" element={<Master Rcf={Blog} />} />
+        <Route path="/subcategory" element={<Master Rcf={AllProducts} />} />
+
 
         <Route path="/login" element={<Login />} />
       </Routes>

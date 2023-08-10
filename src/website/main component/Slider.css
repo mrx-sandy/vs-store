@@ -8,12 +8,19 @@
     padding-top: 50px;
     padding-left: 1000px;
     padding-bottom: 50px;
-    background-color: purple;
+    background: rgb(47,255,0);
+    background: -moz-radial-gradient(circle, rgba(47,255,0,1) 0%, rgba(255,0,252,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(47,255,0,1) 0%, rgba(255,0,252,1) 100%);
+    background: radial-gradient(circle, rgba(47,255,0,1) 0%, rgba(255,0,252,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2fff00",endColorstr="#ff00fc",GradientType=1);
   }
   
   .main{
-    background-color: purple;
-  }
+    background: rgb(47,255,0);
+    background: -moz-radial-gradient(circle, rgba(47,255,0,1) 0%, rgba(255,0,252,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(47,255,0,1) 0%, rgba(255,0,252,1) 100%);
+    background: radial-gradient(circle, rgba(47,255,0,1) 0%, rgba(255,0,252,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2fff00",endColorstr="#ff00fc",GradientType=1);  }
   /* Optional styles for the navigation arrows */
   .slider-box .prevArrow,
   .slider-box .nextArrow {

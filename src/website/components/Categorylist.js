@@ -28,8 +28,8 @@ const Categorylist = () => {
 
   return (
     <div className="container-fluid bg-light bg-icon px-6 mb-5">
-      <div className="container   ">
-        <div className="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: 400 }}>
+      <div className="container">
+        <div className="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ Width: 800 }}>
           <h1 className="text-center display-5 mb-3">Category</h1>
         </div>
         <div className="row">

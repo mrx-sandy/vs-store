@@ -1,7 +1,9 @@
 /* Login.css */
 
 /* Add your custom styles here */
-
+.login-page{
+  background-color: greenyellow;
+}
 /* Animate the logo */
 .user-form-logo img {
   transition: transform 0.3s ease;

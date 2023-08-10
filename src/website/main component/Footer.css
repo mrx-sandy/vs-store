@@ -120,7 +120,7 @@
   }
   
   .footer .copyright {
-    background-color: #222;
+    background-color: #a01d1d;
     color: #ccc;
     padding: 10px 0;
   }
@@ -129,5 +129,6 @@
     max-width: 1200px;
   }
 .container{
-    background-color: purple;
+  background-color: purple;
+
 }  
